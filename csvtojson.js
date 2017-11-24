@@ -8,7 +8,7 @@ const jsonData = []
 const folderName = uuidv1()
 const csvtojson = (file='./customer-data.csv') => {
 	          csv().fromFile(file).on('json', (jsonObj) => {
-	          	jsonData.push(JSON.stringify(jsonObj)+'\n')
+	          	jsonData.push(JSON.stringify(jsonObj, null, '\t')+'\n')
 	          }).on('done', (error) => {
 	          	if(error)return(`Got error ${error.message}`)
 	          	fs.mkdirSync(folderName)
